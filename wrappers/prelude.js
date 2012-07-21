@@ -7,7 +7,7 @@ var require = function (file, cwd) {
     var cached = require.cache[resolved];
     var res = cached? cached.exports : mod();
     return res;
-}
+};
 
 require.paths = [];
 require.modules = {};
@@ -164,7 +164,7 @@ require.alias = function (from, to) {
         require.modules[filename] = function () {
             require.cache[filename] = module_;
             fn.call(
-                module_.exports,
+                this,
                 require_,
                 module_,
                 module_.exports,
